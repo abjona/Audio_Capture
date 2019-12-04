@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Teste Audio
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button outline round color="secondary" (click)="record();">Gravar</button>
+  <ion-list>
+    <ion-item *ngFor="let audio of mediaFiles">
+       <ion-label>
+          <span>{{ audio.name }}</span>
+          <p>Tamanho : {{ audio.size / 1000 / 1000 | number }} MB</p>
+          <p>Local : {{ audio.fullPath }} </p>
+
+       </ion-label>
+       <button item-end outline round ion-button (click)="play(audio)">
+            Play
+          <ion-icon style="margin-left: 3px;" name="play" color="primary"></ion-icon>
+       </button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
